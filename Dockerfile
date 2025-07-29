@@ -17,8 +17,8 @@ RUN echo "Installing required packages..." && \
 # Switch to n8n's installation directory
 WORKDIR /usr/local/lib/node_modules/n8n
 
-# Install Node.js OpenTelemetry dependencies locally to n8n
-RUN npm install \
+# Install Node.js OpenTelemetry dependencies globally to avoid workspace protocol errors
+RUN npm install -g \
     @opentelemetry/api \
     @opentelemetry/sdk-node \
     @opentelemetry/auto-instrumentations-node \
